@@ -16,9 +16,9 @@ class Openstreetmap_org extends \booosta\base\Module
 
   public function __construct($lat, $lon, $zoom = 15, $id = null)
   {
-    if($lon) $this->lon = $lon;
-    if($lat) $this->lat = $lat;
-    if($zoom) $this->zoom = $zoom;
+    $this->lon = $lon;
+    $this->lat = $lat;
+    $this->zoom = $zoom;
     if($id) $this->id = $id;
   }
 

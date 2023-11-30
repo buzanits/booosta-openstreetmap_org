@@ -57,5 +57,5 @@ $this->TPL['mymap'] = $map->get_html();
 
 # mytemplate.tpl
 {%mymap}
-
+```
 

@@ -9,6 +9,7 @@ class Openstreetmap_org extends \booosta\base\Module
   use moduletrait_openstreetmap_org;
 
   protected $id = 'osm1';
+  protected $needs_jquery = true;
   protected $lon, $lat, $zoom;
   protected $width = '100%', $height = '100%';
   protected $marker = [];

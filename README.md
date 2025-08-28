@@ -1,4 +1,4 @@
-# Show openstreetmap maps in the Booosta Framework
+# Show openstreetmap maps in the Booosta Framework or PHP scripts
 
 This modules provides the possibility to show maps from openstreetmap.org in a Booosta web application.
 It can also be used standalone without the Booosta framework.
@@ -16,7 +16,7 @@ This module can be used inside the Booosta framework. If you want to do so, inst
 [installation instructions](https://github.com/buzanits/booosta-installer) for accomplishing this. If your
 Booosta is installed, you can install this module.
 
-You also can use this module in your standalone PHP scripts. In both cases you install ist with:
+You also can use this module in your standalone PHP scripts. In both cases you install it with:
 
 ```
 composer require booosta/openstreetmap_org
@@ -37,6 +37,7 @@ $html = $map->get_html();
 In your PHP script you use:
 
 ```
+<?php
 require_once __DIR__ . '/vendor/autoload.php';
 
 use \booosta\openstreetmap_org\Openstreetmap_org as OSM;

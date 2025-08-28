@@ -1,6 +1,7 @@
 # Show openstreetmap maps in the Booosta Framework
 
 This modules provides the possibility to show maps from openstreetmap.org in a Booosta web application.
+It can also be used standalone without the Booosta framework.
 
 Booosta allows to develop PHP web applications quick. It is mainly designed for small web applications.
 It does not provide a strict MVC distinction. Although the MVC concepts influence the framework. Templates,
@@ -11,15 +12,17 @@ Up to version 3 Booosta was available at Sourceforge: https://sourceforge.net/pr
 
 ## Installation
 
-As this is a module for the Booosta framework, you have to have this framework installed first. See the
+This module can be used inside the Booosta framework. If you want to do so, install the framework first. See the
 [installation instructions](https://github.com/buzanits/booosta-installer) for accomplishing this. If your
-Booosta is installed, you can install this module with
+Booosta is installed, you can install this module.
+
+You also can use this module in your standalone PHP scripts. In both cases you install ist with:
 
 ```
 composer require booosta/openstreetmap_org
 ```
 
-## Usage
+## Usage in the Booosta framework
 
 In your scripts you use the module:
 
@@ -29,8 +32,22 @@ $map = $this->makeInstance('openstreetmap_org', $lat, $lon, $zoom);
 $html = $map->get_html();
 ```
 
+## Usage in standalone PHP scripts
+
+In your PHP script you use:
+
+```
+require_once __DIR__ . '/vendor/autoload.php';
+
+use \booosta\openstreetmap_org\Openstreetmap_org as OSM;
+
+$map = new OSM($lat, $lon, $zoom);
+print $map->loadHTML();
+```
+
 `$lat` and `$lon` are the latitude and longitude of the center of the map. They are in degree. For example
-`16.847477`. `$zoom` is the zoom factor of the map. Default is `15`. You also can set the with and height of the map:
+`16.847477`. `$zoom` is the zoom factor of the map. Default is `15`. You also can set the with and height of the map
+(before calling `get_html()` or `loadHTML()`):
 
 ```
 $map->width($width);
@@ -49,7 +66,7 @@ $map->add_marker($lat3, $lon3);
 
 This will display 3 markers with these coordinates.
 
-You can display the HTML as usual in your templates:
+You can display the HTML as usual in your Booosta templates:
 
 ```
 # myscript.php
